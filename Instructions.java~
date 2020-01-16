@@ -1,0 +1,96 @@
+// [Instructions.java]
+
+// Imports
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.io.*;
+
+// Class
+class Instructions extends JFrame 
+{
+  
+  // Create labels, buttons and panel
+  JLabel instructions1 = new JLabel("Use WASD keys to move character.");
+  JLabel instructions2 = new JLabel("Your character begins in the Town of Beginnings and respawns upon death.");
+  JLabel instructions3 = new JLabel("In the town, there are NPCs which you can interact with and Shops.");
+  JLabel instructions4 = new JLabel("There are 4 major regions that you can travel to from the town through trails.");
+  JLabel instructions5 = new JLabel("These regions are inhabited by many monsters.");
+  JLabel instructions6 = new JLabel("During combat, you must quickly complete different mathematic questions.");
+  JLabel instructions7 = new JLabel("Each successfully completed question will result in a successful attack.");
+  JLabel instructions8 = new JLabel("Have Fun!");
+  JButton back = new JButton("Back to menu");
+  JPanel contentPane = new ImagePanel("Image/menu.png");
+  JScrollPane scrollBar = new JScrollPane(contentPane, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+  
+  /*Used "WASD" keys to move character.
+   * Your character begins in the Town of Beginnings and respawns upon death.
+   * In the town, there are NPCs which you can interact with and Shops.
+   * There are 4 major regions that you can travel to from the town through trails.
+   * These regions are inhabited by many monsters.
+   * During combat, you must quickly complete different mathematic questions.
+   * Each successfully completed question will result in a successful attack.
+   * Have Fun!
+   */
+  
+  // Constructor
+  Instructions() {
+    // Set up title, font and positioning on panel
+    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    setTitle("Instructions");
+    setSize(600,400);
+    instructions1.setFont(Menu.font2);
+    instructions1.setAlignmentX(Component.CENTER_ALIGNMENT);
+    instructions2.setFont(Menu.font2);
+    instructions2.setAlignmentX(Component.CENTER_ALIGNMENT);
+    instructions3.setFont(Menu.font2);
+    instructions3.setAlignmentX(Component.CENTER_ALIGNMENT);
+    instructions4.setFont(Menu.font2);
+    instructions4.setAlignmentX(Component.CENTER_ALIGNMENT);
+    instructions5.setFont(Menu.font2);
+    instructions5.setAlignmentX(Component.CENTER_ALIGNMENT);
+    instructions6.setFont(Menu.font2);
+    instructions6.setAlignmentX(Component.CENTER_ALIGNMENT);
+    instructions7.setFont(Menu.font2);
+    instructions7.setAlignmentX(Component.CENTER_ALIGNMENT);
+    instructions8.setFont(Menu.font2);
+    instructions8.setAlignmentX(Component.CENTER_ALIGNMENT);
+    
+    // Setup background colour and font
+    back.setBackground(Color.RED);
+    back.setOpaque(true);
+    back.setFont(Menu.font);
+    back.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        dispose();
+        try {
+          Menu.startMenu();
+        } catch (IOException io) {
+          System.out.println("Menu file not found");
+        }
+      }
+    });
+    back.setAlignmentX(Component.CENTER_ALIGNMENT);
+    
+    // Display instructions on the window
+    contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
+    contentPane.add(instructions1);
+    contentPane.add(instructions2);
+    contentPane.add(instructions3);
+    contentPane.add(instructions4);
+    contentPane.add(instructions5);
+    contentPane.add(instructions6);
+    contentPane.add(instructions7);
+    contentPane.add(instructions8);
+    contentPane.add(back);
+    add(contentPane);
+    pack();
+    setResizable(false);
+    setVisible(true);
+  }
+  
+  // Method to call the instructions
+  static void showInstructions() {
+    Instructions i = new Instructions();
+  }
+}

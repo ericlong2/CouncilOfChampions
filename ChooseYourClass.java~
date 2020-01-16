@@ -1,0 +1,87 @@
+// [ChooseYourClass.java]
+
+// Imports
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+
+// Class
+class ChooseYourClass extends JFrame  
+{
+  
+  // Variables
+  int classC;
+  JLabel chooseClass = new JLabel("Choose the difficulty:");
+  JButton class1 = new JButton("Easy");
+  JButton class2 = new JButton("Medium");
+  JButton class3 = new JButton("Hard");
+  JPanel contentPane = new ImagePanel("Image/menu.png");
+  
+  ChooseYourClass () {
+    
+    // JFrame
+    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    setTitle("Choose");
+    setSize(600,400);
+    
+    // JLabel
+    chooseClass.setFont(Menu.font);
+    chooseClass.setAlignmentX(Component.CENTER_ALIGNMENT);
+    
+    // Easy JButton
+    class1.setFont(Menu.font);
+    class1.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        dispose();
+        classC = 1;
+        Game.startGame(10, 10, 10, 10, 10, classC);
+      }
+    });
+    class1.setAlignmentX(Component.CENTER_ALIGNMENT);
+    
+    // Medium JButton
+    class2.setFont(Menu.font);
+    class2.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        dispose();
+        classC = 2;
+        Game.startGame(10, 10, 10, 10, 10, classC);
+      }
+    });
+    class2.setAlignmentX(Component.CENTER_ALIGNMENT);
+    
+    // Hard JButton
+    class3.setFont(Menu.font);
+    class3.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        dispose();
+        classC = 3;
+        Game.startGame(10, 10, 10, 10, 10, classC);
+      }
+    });
+    class3.setAlignmentX(Component.CENTER_ALIGNMENT);
+    
+    // BoxLayout
+    contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
+    
+    // Add JButtons and JLabel
+    contentPane.add(chooseClass);
+    contentPane.add(class1);
+    contentPane.add(class2);
+    contentPane.add(class3);
+    
+    // Add JPanel
+    add(contentPane);
+    
+    // Resize and set visible
+    setResizable(false);
+    pack();
+    setVisible(true);
+  }
+  
+  // Runs JFrame
+  static void choose() {
+    ChooseYourClass c = new ChooseYourClass();
+  }
+}

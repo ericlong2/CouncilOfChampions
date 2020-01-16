@@ -1,0 +1,41 @@
+// [Building.java]
+
+// Imports
+import java.io.*;
+import javax.imageio.*;
+import java.awt.image.*;
+import java.awt.*;
+import java.util.*;
+
+// Class
+class Building extends Map
+{
+  
+  // Constructor
+  Building(int currentSprite) {
+    super(currentSprite);
+  }
+  
+  // Variables
+  static BufferedImage[] sprites;
+  
+  // Method to load the building sprites
+  static void loadSprites() throws IOException{ 
+    BufferedImage sheet;
+    sheet = ImageIO.read(new File("Image/buildings.png"));
+    sprites = new BufferedImage[4];
+    sprites[0] = sheet.getSubimage(0, 0, 301, 335);
+    sprites[1] = sheet.getSubimage(sheet.getWidth() - 289, 0, 289, 300);
+    sprites[2] = sheet.getSubimage(0, sheet.getHeight() - 433, 336, 433);
+    sprites[3] = sheet.getSubimage(sheet.getWidth() - 431, sheet.getHeight() - 406, 431, 406);
+  }
+  
+  // Spawning the buildings intp the map
+  static void spawn() {
+    Maps.maps[0][27][13] = new Building(3);
+    Maps.maps[0][20][20] = new Building(1);
+    Maps.maps[0][19][33] = new Building(1);
+    Maps.maps[0][32][24] = new Building(2);
+    Maps.maps[0][23][32] = new Building(2);
+  }
+}

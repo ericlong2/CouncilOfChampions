@@ -1,0 +1,6 @@
+class Drop extends Life () {
+  Drop(int health, int gold, int exp) {
+    super(health, gold, exp);
+  }
+  BufferedImage sprite = ImageIO.read(new File("Image/drop.png"));
+}

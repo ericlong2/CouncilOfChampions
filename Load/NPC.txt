@@ -1,0 +1,16 @@
+Kill Monster #1 5 times
+10 10 1 1
+Kill Monster #2 5 times
+20 20 2 2
+Kill Monster #3 5 times
+30 30 3 3
+Kill Monster #4 5 times
+40 40 4 4
+Kill Monster #5 5 times
+50 50 5 5
+Kill Monster #6 5 times
+60 60 6 6
+Kill Monster #7 5 times
+70 70 7 7
+Kill Monster #8 5 times
+80 80 8 8
